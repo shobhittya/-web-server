@@ -1,16 +1,12 @@
 var express = require('express');
 var app = express();
-var port = 4000;
-app.get('/', function (req, res){
-     //res.send('Hello Express !');
-     res.send('The port number is' + port);
+var port = 3000;
 
-});
-
-
+var middleware = require('./middleware.js');
+app.use(middleware.logger);
 
 app.get('/about', function (req, res){
-    res.send('Hello about us !');
+    res.send('Hello about us s');
 
 });
 app.use(express.static(__dirname + '/public'));
